@@ -1,7 +1,10 @@
 from flask import Flask, g, jsonify
+from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
+
+mysql = MySQL(app)
 
 def has_connection():
 	return hasattr(g, 'dbconn')
@@ -30,6 +33,7 @@ def show_transaction(transaction_id):
 
 @app.route("/<transaction_id>/<attribute_name>")
 def show_transaction_detail(transaction_id, attribute_name):
+
 	pass
 
 if __name__ == "__main__":
